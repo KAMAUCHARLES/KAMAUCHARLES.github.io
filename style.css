@@ -188,69 +188,78 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
     min-width: 200px;
 }
 
-/* MOBILE STYLES (STRICTLY VERTICAL DROPDOWN) */
+/* MOBILE STYLES (VERTICAL SIDE-SLIDE MENU) */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
+        z-index: 2100; /* Stays above the sliding menu */
     }
 
-    /* The vertical dropdown container */
+    /* Vertical Side-Drawer */
     .nav {
-        position: absolute;
-        top: 100%; /* Starts exactly at the bottom of the header */
-        left: 0;
-        width: 100%;
-        background: rgba(10, 15, 30, 0.95); /* Dark glass */
-        backdrop-filter: blur(15px);
-        
-        /* Forces vertical stacking */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen to the right */
+        width: 75%; /* Covers 75% of the screen width */
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98); /* Deep glassmorphism */
+        backdrop-filter: blur(20px);
         display: flex;
         flex-direction: column;
+        justify-content: center; /* Centers links vertically */
         align-items: center;
-        
-        /* Dropdown animation logic */
-        max-height: 0; 
-        overflow: hidden;
-        transition: max-height 0.5s ease-in-out, padding 0.5s ease;
-        border-bottom: 2px solid var(--neon-blue);
+        transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        border-left: 2px solid var(--neon-blue);
+        z-index: 2050;
     }
 
-    /* When menu is open */
+    /* Slide in when active */
     .nav.active {
-        max-height: 500px; /* High enough to show all links */
-        padding: 20px 0;
+        right: 0;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     }
 
     /* Vertical Link Styling */
     .nav a {
         margin: 0;
-        padding: 15px 0;
-        width: 100%; /* Takes full width for vertical stack */
+        padding: 20px 0;
+        width: 100%;
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         font-family: 'Orbitron', sans-serif;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        text-transform: uppercase;
+        letter-spacing: 2px;
         opacity: 0;
-        transition: 0.3s;
+        transform: translateX(50px); /* Starts slightly to the right */
+        transition: 0.4s;
     }
 
-    /* Fade links in when active */
+    /* Staggered Entrance Animation */
     .nav.active a {
         opacity: 1;
+        transform: translateX(0);
+    }
+    .nav.active a:nth-child(1) { transition-delay: 0.1s; }
+    .nav.active a:nth-child(2) { transition-delay: 0.2s; }
+    .nav.active a:nth-child(3) { transition-delay: 0.3s; }
+    .nav.active a:nth-child(4) { transition-delay: 0.4s; }
+    .nav.active a:nth-child(5) { transition-delay: 0.5s; }
+    .nav.active a:nth-child(6) { transition-delay: 0.6s; }
+
+    /* Neon indicator on active/touch */
+    .nav a:active {
+        color: var(--neon-blue);
+        background: rgba(0, 247, 255, 0.05);
     }
 
-    .nav a:last-child {
-        border-bottom: none;
-    }
-
-    /* Hamburger to X Animation */
+    /* Hamburger Animation to X */
     .menu-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
     .menu-toggle.open span:nth-child(2) { opacity: 0; }
     .menu-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-    /* Other Mobile Tweaks */
+    /* Hero & Section adjustments for mobile */
     .hero-btns { flex-direction: column; width: 100%; align-items: center; gap: 15px; }
-    .btn { width: 100%; max-width: 250px; }
+    .btn { width: 100%; max-width: 280px; }
     .section { padding: 80px 6% 40px; }
     .contact-box { padding: 40px 20px; border-radius: 20px; }
 }
