@@ -230,7 +230,7 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
         font-family: 'Orbitron', sans-serif;
         color: var(--text-dim);
         border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        transition: 0.3s;
+        transition: 0.4s;
     }
 
     .nav a:last-child { border-bottom: none; }
@@ -254,3 +254,4 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
     .section-title { font-size: 1.5rem; }
     .contact-box { padding: 30px 15px; border-radius: 20px; }
 }
+
