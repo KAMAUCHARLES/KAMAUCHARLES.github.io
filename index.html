@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHARLES KAMAU | Applied CS Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+<!-- NEON MESH CANVAS -->
+<canvas id="mesh-canvas"></canvas>
+
+<header>
+    <div class="logo">CHARLES KAMAU<span>.dev</span></div>
+    
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="nav" id="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Tech Stack</a>
+        <a href="#tools">Tools</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero section active" id="home">
+    <div class="hero-container">
+        <div class="profile-wrapper">
+            <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+        </div>
+        <div class="hero-content">
+            <!-- RESTORED INTERNSHIP BADGE -->
+            <span class="badge">Available for Internships 2026</span>
+            
+            <h1>Building <span>Intelligent</span> Systems</h1>
+            <p>
+                I'm <strong>CHARLES KAMAU</strong>, a 3rd-year Applied Computer Science student specializing in 
+                architecting scalable full-stack applications and AI-driven solutions.
+            </p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="cv.pdf" class="btn btn-outline">Download CV</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-text">
+            <p>My approach to computer science is <strong>applied</strong>. I don't just study algorithms; I implement them to solve real-world problems. With a strong foundation in software architecture and data science, I bridge the gap between complex logic and user-centric design.</p>
+            <br>
+            <p>Currently focusing on: <strong>Distributed Systems & Deep Learning.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills section" id="skills">
+    <h2 class="section-title">Technical Expertise</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <i class="fas fa-code"></i>
+            <h3>Frontend</h3>
+            <p>React, Next.js, Tailwind CSS</p>
+        </div>
+        <div class="skill-card">
+            <i class="fas fa-server"></i>
+            <h3>Backend</h3>
+            <p>Java, Python, Node.js, PHP</p>
+        </div>
+        <div class="skill-card">
+            <i class="fas fa-database"></i>
+            <h3>Data & AI</h3>
+            <p>PostgreSQL, MongoDB, NoSQL</p>
+        </div>
+        <div class="skill-card">
+            <i class="fas fa-gears"></i>
+            <h3>DevOps</h3>
+            <p>Bash, Python, JSON</p>
+        </div>
+    </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools section" id="tools">
+    <h2 class="section-title">Tools</h2>
+    <div class="tools-grid">
+        <div class="tool-card"><i class="fas fa-git-alt"></i><h3>Git</h3></div>
+        <div class="tool-card"><i class="fas fa-github"></i><h3>GitHub</h3></div>
+        <div class="tool-card"><i class="fas fa-cloud"></i><h3>Cloud</h3></div>
+        <div class="tool-card"><i class="fas fa-terminal"></i><h3>Terminal</h3></div>
+        <div class="tool-card"><i class="fas fa-code"></i><h3>VS Code</h3></div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects section" id="projects">
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="project-container">
+        <div class="project-card">
+            <div class="project-tags"><span>AI</span><span>Python</span></div>
+            <h3>AI Supplement Scanner</h3>
+            <p>An image-recognition tool that identifies banned substances in workout supplements using OCR and a custom-trained CNN model.</p>
+            <div class="project-links">
+                <a href="#"><i class="fab fa-github"></i> Code</a>
+                <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-tags"><span>Java</span><span>MySQL</span><span>Swing & JavaFX</span></div>
+            <h3>Student Records Management System</h3>
+            <p>A high-concurrency management system with automated scheduling, role-based access control, and real-time notifications.</p>
+            <div class="project-links">
+                <a href="#"><i class="fab fa-github"></i> Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-tags"><span>React</span><span>Chart.js</span></div>
+            <h3>Quantum Finance Tracker</h3>
+            <p>Visualizing personal spending patterns using predictive analytics to forecast end-of-month savings goals.</p>
+            <div class="project-links">
+                <a href="#"><i class="fab fa-github"></i> Code</a>
+                <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-tags"><span>PHP 8.1</span><span>MySQL</span><span>Tailwind CSS</span></div>
+            <h3>Customer Management System</h3>
+            <p>A high-performance, full-stack PHP Customer Management System designed with a focus on security, verification workflows, and a cutting-edge "Neon Dark" aesthetic.</p>
+            <div class="project-links">
+                <a href="#"><i class="fab fa-github"></i> Code</a>
+                <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+    <div class="contact-box">
+        <h2>Start a Conversation</h2>
+        <p>Looking for a developer? Drop a message below.</p>
+        <form action="https://formspree.io/f/mlgwnjld" method="POST" id="contact-form">
+            <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+            <div class="form-group"><input type="email" name="_replyto" placeholder="Your Email" required></div>
+            <div class="form-group"><textarea name="message" placeholder="How can I help you?" rows="5" required></textarea></div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div id="form-status"></div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 CHARLES KAMAU.DEV | Built with Logic & Caffeine ☕.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
