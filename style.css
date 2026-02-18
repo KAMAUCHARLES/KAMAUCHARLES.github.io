@@ -11,7 +11,7 @@
     --glass: rgba(17, 34, 64, 0.7);
     --text-main: #e2f3ff;
     --text-dim: #94a3b8;
-    --header-footer-bg: rgba(10, 15, 30, 0.8); /* Reusable for both */
+    --header-footer-bg: rgba(10, 15, 30, 0.8);
 }
 
 body {
@@ -29,16 +29,28 @@ body {
     z-index: -1;
 }
 
-/* HEADER */
+/* HEADER & FOOTER (MATCHED) */
+header, footer {
+    background: var(--header-footer-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
 header {
     position: fixed;
     width: 100%; top: 0;
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 8%;
-    background: var(--header-footer-bg);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    border-top: none; border-left: none; border-right: none;
     z-index: 2000;
+}
+
+footer { 
+    text-align: center; 
+    padding: 40px; 
+    color: var(--text-dim); 
+    font-size: 0.8rem; 
+    border-bottom: none; border-left: none; border-right: none;
 }
 
 .logo {
@@ -47,13 +59,13 @@ header {
 }
 .logo span { color: #fff; }
 
+/* NAV & HOVERS */
 nav a {
     margin-left: 30px; text-decoration: none;
     color: var(--text-dim); transition: 0.3s; font-size: 0.9rem;
 }
 nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
 
-/* CUSTOM TOGGLE BUTTON */
 .menu-toggle {
     display: none; flex-direction: column; justify-content: space-between;
     width: 30px; height: 21px; cursor: pointer; z-index: 2100;
@@ -84,25 +96,18 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
 .hero-container { display: flex; flex-direction: column; align-items: center; }
 
 .badge {
-    display: inline-block;
-    background: rgba(0, 247, 255, 0.1);
-    color: var(--neon-blue);
-    padding: 5px 15px; border-radius: 20px;
-    font-size: 0.8rem; border: 1px solid var(--neon-blue);
-    margin-bottom: 15px;
+    display: inline-block; background: rgba(0, 247, 255, 0.1); color: var(--neon-blue);
+    padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--neon-blue); margin-bottom: 15px;
 }
 
 .profile-pic {
-    width: 180px; height: 180px; border-radius: 20%;
-    object-fit: cover; border: 3px solid #00ffff;
-    box-shadow: 0 0 30px #00ffff; transition: 0.3s;
-    margin-bottom: 20px;
+    width: 180px; height: 180px; border-radius: 20%; object-fit: cover; border: 3px solid #00ffff;
+    box-shadow: 0 0 30px #00ffff; transition: 0.3s; margin-bottom: 20px;
 }
 .profile-pic:hover { transform: scale(1.05); }
 
 .hero h1 { 
-    font-family: 'Orbitron', sans-serif; 
-    font-size: clamp(2.5rem, 8vw, 4rem); 
+    font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 8vw, 4rem); 
     margin: 20px 0; line-height: 1.1;
 }
 .hero h1 span { color: var(--neon-blue); text-shadow: 0 0 20px rgba(0, 247, 255, 0.5); }
@@ -111,20 +116,37 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
 
 /* BUTTONS */
 .btn {
-    padding: 12px 30px; background: var(--neon-blue);
-    color: var(--dark-bg); border-radius: 8px;
-    text-decoration: none; font-weight: 600; transition: 0.3s;
-    display: inline-block; border: none; cursor: pointer;
+    padding: 12px 30px; background: var(--neon-blue); color: var(--dark-bg); border-radius: 8px;
+    text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; border: none; cursor: pointer;
 }
 .btn-outline { background: transparent; color: var(--neon-blue); border: 1px solid var(--neon-blue); }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4); }
 
-/* SOCIAL LINKS */
 .social-links { font-size: 1.5rem; display: flex; gap: 25px; justify-content: center; }
 .social-links a { color: var(--text-dim); transition: 0.3s; text-decoration: none; }
 .social-links a:hover { color: var(--neon-blue); }
 
-/* PROJECT CARDS */
+/* SKILLS & TOOLS (RESTORED TO ORIGINAL STYLING) */
+.skills-grid, .tools-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+}
+.skill-card {
+    background: var(--glass); padding: 30px; border-radius: 15px;
+    text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;
+}
+.tool-card {
+    background: var(--glass); padding: 10px; border-radius: 15px; /* ORIGINAL: 10px padding */
+    text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;
+}
+.skill-card i, .tool-card i { font-size: 2.5rem; color: var(--neon-blue); margin-bottom: 15px; }
+
+.skill-card:hover, .tool-card:hover { 
+    border-color: var(--neon-blue); 
+    box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4); 
+    transform: translateY(-10px); 
+}
+
+/* PROJECT CARDS (RESTORED TO ORIGINAL STYLING) */
 .project-container {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
 }
@@ -132,9 +154,10 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
     background: var(--glass); padding: 30px; border-radius: 20px;
     border: 1px solid rgba(0,255,255,0.1); backdrop-filter: blur(10px);
     display: flex; flex-direction: column; transition: 0.4s;
-    text-align: left;
+    text-align: left; /* ORIGINAL: left aligned */
 }
 .project-card:hover { border-color: var(--neon-blue); box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4); transform: translateY(-10px); }
+
 .project-tags { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
 .project-tags span {
     font-size: 0.7rem; background: rgba(255,255,255,0.1);
@@ -144,16 +167,6 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
 .project-links a { color: #fff; text-decoration: none; font-size: 0.9rem; }
 .project-links a:hover { color: var(--neon-blue); }
 
-/* SKILLS/TOOLS GRIDS */
-.skills-grid, .tools-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
-}
-.skill-card, .tool-card {
-    background: var(--glass); padding: 30px; border-radius: 15px;
-    text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;
-}
-.skill-card i, .tool-card i { font-size: 2.5rem; color: var(--neon-blue); margin-bottom: 15px; }
-
 /* CONTACT BOX & FORM */
 .contact-box {
     background: linear-gradient(135deg, rgba(0,247,255,0.1), rgba(0,140,255,0.1));
@@ -161,68 +174,44 @@ nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
     border: 1px solid rgba(0,247,255,0.2); max-width: 700px; margin: 0 auto;
     width: 100%;
 }
-#contact-form { 
-    display: flex; flex-direction: column; gap: 20px; margin-top: 40px; width: 100%; 
-}
+#contact-form { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; width: 100%; }
 .form-group input, .form-group textarea {
     width: 100%; padding: 15px; background: rgba(17, 34, 64, 0.8);
     border: 1px solid rgba(0, 247, 255, 0.2); border-radius: 8px;
     color: white; font-family: 'Poppins', sans-serif; outline: none; transition: 0.3s;
 }
 
-/* POSITIONING THE FORM BUTTON */
+/* CENTERED FORM BUTTON */
 #contact-form .btn {
-    align-self: center; /* Centers button horizontally in the column */
+    align-self: center; 
     width: fit-content;
     min-width: 200px;
 }
 
-/* FOOTER (MATCHES HEADER) */
-footer { 
-    text-align: center; 
-    padding: 40px; 
-    color: var(--text-dim); 
-    font-size: 0.8rem; 
-    background: var(--header-footer-bg);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(0,255,255,0.1); 
-}
-
-/* MOBILE STYLES (DROPDOWN MENU) */
+/* MOBILE STYLES (VERTICAL DROPDOWN) */
 @media (max-width: 768px) {
     .menu-toggle { display: flex; }
 
     .nav {
         position: absolute;
-        top: 100%; /* Positions it directly under the header */
-        left: 0;
-        width: 100%;
-        background: rgba(10, 15, 30, 0.95);
+        top: 100%; left: 0; width: 100%;
+        background: rgba(10, 15, 30, 0.98);
         backdrop-filter: blur(15px);
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        max-height: 0; /* Hidden state */
-        overflow: hidden;
-        transition: 0.4s ease-in-out;
+        flex-direction: column; align-items: center;
+        max-height: 0; overflow: hidden;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         border-bottom: 1px solid rgba(0, 247, 255, 0.2);
     }
 
     .nav.active {
-        max-height: 400px; /* Dropdown expanded state */
-        padding: 20px 0;
+        max-height: 500px; padding: 10px 0 20px;
     }
 
     .nav a {
-        margin: 0;
-        padding: 15px 0;
-        width: 100%;
-        text-align: center;
-        font-size: 1.1rem;
+        margin: 0; padding: 15px 0; width: 100%; text-align: center; font-size: 1.1rem;
         border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-
-    /* Hamburger Animation to X */
+    
     .menu-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
     .menu-toggle.open span:nth-child(2) { opacity: 0; }
     .menu-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
