@@ -1,10 +1,7 @@
 // PARTICLE MESH SYSTEM
 const canvas = document.getElementById("mesh-canvas");
 const ctx = canvas.getContext("2d");
-function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 window.addEventListener('resize', resize);
 resize();
 
@@ -17,8 +14,7 @@ class Particle {
         this.speedY = (Math.random() - 0.5) * 0.4;
     }
     update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+        this.x += this.speedX; this.y += this.speedY;
         if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
         if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
     }
@@ -50,7 +46,7 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-// MOBILE MENU
+// MOBILE MENU LOGIC
 const menuToggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav');
 menuToggle.addEventListener('click', () => {
@@ -66,9 +62,7 @@ document.querySelectorAll('#nav a').forEach(link => {
 
 // SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
